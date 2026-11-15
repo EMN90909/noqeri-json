@@ -1,0 +1,13 @@
+import "../src/json.noqeri"
+
+function require(ok: bool): void {
+    if !ok { let invalid: *u8 = 0 as *u8 print(invalid[0]) }
+}
+
+require(jsonIsWhitespace(32 as u8))
+require(jsonIsDigit(57 as u8))
+require(jsonStringTokenValid([34 as u8, 97 as u8, 34 as u8]))
+require(!jsonStringTokenValid([34 as u8, 10 as u8, 34 as u8]))
+require(jsonLooksComplete([123 as u8, 125 as u8]))
+print("noqeri-json package tests: OK")
+
